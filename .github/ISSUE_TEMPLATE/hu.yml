@@ -1,0 +1,77 @@
+name: História de Usuário
+description: Registra uma HU do Product Backlog do sistema de preços, estoque e compras
+title: "HU00 — "
+labels: ["tipo:hu"]
+projects: ["rodrigosantoscosta/2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Escreva a história no formato **Como** `<papel>`, **quero** `<ação>`, **para** `<benefício>`.
+        Os critérios de aceitação devem ser verificáveis e virar checkboxes.
+  - type: input
+    id: hu-id
+    attributes:
+      label: ID da HU
+      description: Sequencial, no formato HUxx
+      placeholder: HU14
+    validations:
+      required: true
+  - type: dropdown
+    id: epico
+    attributes:
+      label: Épico
+      options:
+        - Épico 1 — Cadastro de produtos e fornecedores
+        - Épico 2 — Importação e processamento de PDF
+        - Épico 3 — Histórico e comparação de preços
+    validations:
+      required: true
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options:
+        - Alta
+        - Média
+        - Baixa
+    validations:
+      required: true
+  - type: input
+    id: pb
+    attributes:
+      label: Item do Product Backlog
+      placeholder: PB14
+    validations:
+      required: true
+  - type: textarea
+    id: historia
+    attributes:
+      label: História
+      placeholder: Como ..., quero ..., para ...
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceitação
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definição de Pronto
+      value: |
+        - [ ] Código revisado e mergeado em master
+        - [ ] Testes automatizados cobrindo os critérios de aceitação
+        - [ ] README ou documentação atualizados
+        - [ ] Pipeline de CI verde
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Rastreabilidade:** crie a branch como `huXX-<slug>` e inclua `Closes #<esta issue>` na descrição do PR.

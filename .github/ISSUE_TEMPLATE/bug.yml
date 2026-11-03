@@ -1,0 +1,43 @@
+name: Defeito
+description: Reporta um comportamento incorreto no sistema
+title: "fix: "
+labels: ["tipo:bug"]
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      description: O que aconteceu e o que era esperado
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: input
+    id: hu
+    attributes:
+      label: HU relacionada
+      placeholder: "#12 (HU05)"
+  - type: textarea
+    id: evidencias
+    attributes:
+      label: Evidências
+      description: Logs, prints ou trechos de saída
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: Severidade
+      options:
+        - Bloqueante
+        - Alta
+        - Média
+        - Baixa
+    validations:
+      required: true

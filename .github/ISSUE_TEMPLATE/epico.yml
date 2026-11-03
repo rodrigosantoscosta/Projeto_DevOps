@@ -1,0 +1,38 @@
+name: Épico
+description: Agrupa histórias de usuário de um mesmo tema do produto
+title: "Épico N — "
+labels: ["tipo:epico"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cada épico reúne HUs relacionadas. Liste as issues filhas abaixo para que o GitHub
+        calcule o progresso automaticamente.
+  - type: input
+    id: epico-id
+    attributes:
+      label: ID do épico
+      placeholder: E4
+    validations:
+      required: true
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: Objetivo do épico
+      placeholder: Qual problema de negócio este épico resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: historias
+    attributes:
+      label: Histórias de usuário
+      value: |
+        - [ ] #
+        - [ ] #
+    validations:
+      required: true
+  - type: textarea
+    id: fora-escopo
+    attributes:
+      label: Fora de escopo
+      description: O que deliberadamente não será tratado neste épico

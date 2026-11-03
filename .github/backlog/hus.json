@@ -1,0 +1,276 @@
+{
+  "owner": "rodrigosantoscosta",
+  "repo": "Projeto_DevOps",
+  "project": {
+    "title": "Product Backlog — Projeto DevOps",
+    "milestone": "MVP"
+  },
+  "definitionOfDone": [
+    "Código revisado e mergeado em master",
+    "Testes automatizados cobrindo os critérios de aceitação",
+    "README ou documentação atualizados",
+    "Pipeline de CI verde"
+  ],
+  "labels": [
+    { "name": "tipo:hu", "color": "1D76DB", "description": "História de usuário" },
+    { "name": "tipo:epico", "color": "5319E7", "description": "Épico que agrupa histórias de usuário" },
+    { "name": "tipo:bug", "color": "D73A4A", "description": "Defeito identificado" },
+    { "name": "tipo:infra", "color": "0E8A16", "description": "Infraestrutura, CI/CD e automação" },
+    { "name": "tipo:docs", "color": "0075CA", "description": "Documentação" },
+    { "name": "epico:cadastro", "color": "C5DEF5", "description": "Épico 1 — Cadastro de produtos e fornecedores" },
+    { "name": "epico:importacao", "color": "BFD4F2", "description": "Épico 2 — Importação e processamento de PDF" },
+    { "name": "epico:historico", "color": "D4C5F9", "description": "Épico 3 — Histórico e comparação de preços" },
+    { "name": "prioridade:alta", "color": "B60205", "description": "Prioridade alta (MVP)" },
+    { "name": "prioridade:media", "color": "D93F0B", "description": "Prioridade média" },
+    { "name": "prioridade:baixa", "color": "0E8A16", "description": "Prioridade baixa" },
+    { "name": "bloqueado", "color": "000000", "description": "Item impedido por dependencia externa" }
+  ],
+  "epics": [
+    {
+      "id": "E1",
+      "title": "Épico 1 — Cadastro de produtos e fornecedores",
+      "label": "epico:cadastro",
+      "option": "Épico 1 — Cadastro",
+      "description": "Base de dados mestre do sistema: produtos internos, fornecedores e o vínculo entre itens comerciais dos fornecedores e os produtos da loja."
+    },
+    {
+      "id": "E2",
+      "title": "Épico 2 — Importação e processamento de arquivos PDF",
+      "label": "epico:importacao",
+      "option": "Épico 2 — Importação PDF",
+      "description": "Ingestão dos PDFs de fornecedores, extração dos dados, conferência humana e conclusão da importação com registro de status."
+    },
+    {
+      "id": "E3",
+      "title": "Épico 3 — Histórico e comparação de preços",
+      "label": "epico:historico",
+      "option": "Épico 3 — Histórico de preços",
+      "description": "Persistência do histórico de preços válidos, comparação com o último preço conhecido e classificação das variações."
+    }
+  ],
+  "hus": [
+    {
+      "id": "HU01",
+      "pb": "PB01",
+      "epic": "E1",
+      "title": "HU01 — Cadastrar produtos internos",
+      "priority": "Alta",
+      "branch": "hu01-cadastrar-produtos",
+      "story": "Como responsável pelo cadastro, quero cadastrar produtos internos com código, nome, categoria, unidade, preços de compra e venda, estoque atual, estoque mínimo e status, para manter as informações dos produtos organizados e disponíveis para consulta.",
+      "pbDescription": "Desenvolver a funcionalidade de cadastro de produtos internos.",
+      "criteria": [
+        "O sistema deve permitir cadastrar um produto com os dados necessários.",
+        "O produto deve possuir código, nome, categoria, unidade, preço de compra, preço de venda, estoque atual, estoque mínimo e status.",
+        "O sistema deve permitir consultar os produtos cadastrados.",
+        "O sistema deve permitir editar as informações de um produto.",
+        "Os dados devem ser armazenados no banco de dados."
+      ]
+    },
+    {
+      "id": "HU02",
+      "pb": "PB02",
+      "epic": "E1",
+      "title": "HU02 — Consultar e editar produtos",
+      "priority": "Alta",
+      "branch": "hu02-consultar-editar-produtos",
+      "story": "Como responsável pelo cadastro, quero consultar e editar os produtos internos, para manter os dados atualizados e facilitar a identificação dos itens durante as importações.",
+      "pbDescription": "Desenvolver as funcionalidades de consulta e edição de produtos.",
+      "criteria": [
+        "O sistema deve apresentar os produtos cadastrados.",
+        "Deve ser possível localizar um produto pelo código ou nome.",
+        "Deve ser possível editar os dados de um produto.",
+        "As alterações devem ser persistidas no banco de dados."
+      ]
+    },
+    {
+      "id": "HU03",
+      "pb": "PB03",
+      "epic": "E1",
+      "title": "HU03 — Cadastrar fornecedores",
+      "priority": "Alta",
+      "branch": "hu03-cadastrar-fornecedores",
+      "story": "Como responsável pelas compras, quero cadastrar e consultar fornecedores, para identificar a origem dos preços utilizados nas compras da loja.",
+      "pbDescription": "Desenvolver a funcionalidade de cadastro e consulta de fornecedores.",
+      "criteria": [
+        "O sistema deve permitir cadastrar fornecedores.",
+        "Deve ser possível consultar os fornecedores cadastrados.",
+        "Os fornecedores devem ser armazenados no banco de dados.",
+        "O fornecedor deve poder ser selecionado durante a importação de um PDF."
+      ]
+    },
+    {
+      "id": "HU04",
+      "pb": "PB04",
+      "epic": "E1",
+      "title": "HU04 — Associar itens dos fornecedores aos produtos internos",
+      "priority": "Alta",
+      "branch": "hu04-associar-itens-fornecedor",
+      "story": "Como responsável pelas compras, quero associar cada item ou apresentação comercial de um fornecedor a um produto interno, para garantir que as comparações de preços sejam realizadas entre produtos correspondentes.",
+      "pbDescription": "Implementar a associação entre itens dos fornecedores e produtos internos.",
+      "criteria": [
+        "O sistema deve permitir associar um item de fornecedor a um produto interno.",
+        "A associação deve considerar a unidade e a embalagem comercial.",
+        "Quando a correspondência não for segura, o sistema deve solicitar confirmação manual.",
+        "O vínculo confirmado deve ser armazenado para facilitar futuras importações.",
+        "Um código repetido, isoladamente, não deve ser considerado suficiente para identificar um produto."
+      ]
+    },
+    {
+      "id": "HU05",
+      "pb": "PB05",
+      "epic": "E2",
+      "title": "HU05 — Enviar PDF de fornecedor",
+      "priority": "Alta",
+      "branch": "hu05-enviar-pdf-fornecedor",
+      "story": "Como responsável pelas compras, quero enviar um arquivo PDF associado a um fornecedor, para importar os preços comerciais sem precisar cadastrar manualmente todas as informações.",
+      "pbDescription": "Desenvolver a funcionalidade de envio de arquivos PDF vinculados a fornecedores.",
+      "criteria": [
+        "O sistema deve permitir selecionar o fornecedor.",
+        "Deve ser possível enviar um arquivo PDF compatível com os formatos de referência fornecidos.",
+        "O sistema deve registrar a data da importação, o arquivo, a quantidade de itens e o status do processamento.",
+        "Cada tentativa de importação deve ser registrada.",
+        "O sistema deve detectar possíveis reimportações do mesmo arquivo para evitar duplicações silenciosas."
+      ]
+    },
+    {
+      "id": "HU06",
+      "pb": "PB06",
+      "epic": "E2",
+      "title": "HU06 — Extrair dados dos arquivos PDF",
+      "priority": "Alta",
+      "branch": "hu06-extrair-dados-pdf",
+      "story": "Como responsável pelas compras, quero que o sistema extraia as informações disponíveis nos PDFs, para transformar tabelas comerciais em dados estruturados que possam ser conferidos e comparados.",
+      "pbDescription": "Implementar a extração de informações dos arquivos PDF.",
+      "criteria": [
+        "O sistema deve extrair, quando disponíveis, referência, descrição, unidade ou embalagem, quantidade e preço.",
+        "Os dados extraídos devem ser apresentados para conferência.",
+        "O sistema deve indicar inconsistências identificadas durante a extração.",
+        "Os PDFs devem ser processados conforme os formatos de referência disponibilizados para o projeto.",
+        "Falhas de extração devem ser registradas, sem indicar que a importação foi integralmente validada."
+      ]
+    },
+    {
+      "id": "HU07",
+      "pb": "PB07",
+      "epic": "E2",
+      "title": "HU07 — Conferir e corrigir dados extraídos",
+      "priority": "Alta",
+      "branch": "hu07-conferir-corrigir-dados",
+      "story": "Como responsável pelas compras, quero visualizar e corrigir os dados extraídos de um PDF antes de confirmar a importação, para evitar que informações incorretas sejam incorporadas ao histórico de preços.",
+      "pbDescription": "Desenvolver a tela de conferência e correção dos dados extraídos.",
+      "criteria": [
+        "O sistema deve apresentar os itens extraídos para conferência.",
+        "Deve ser possível identificar itens com informações inconsistentes.",
+        "Itens inválidos ou não reconhecidos devem permanecer pendentes.",
+        "O sistema deve permitir corrigir as informações necessárias.",
+        "Apenas preços válidos e confirmados devem ser incorporados ao histórico."
+      ]
+    },
+    {
+      "id": "HU08",
+      "pb": "PB08",
+      "epic": "E2",
+      "title": "HU08 — Identificar itens não reconhecidos",
+      "priority": "Alta",
+      "branch": "hu08-itens-nao-reconhecidos",
+      "story": "Como responsável pelas compras, quero identificar e associar manualmente os itens que o sistema não reconhece, para manter a correspondência correta entre os produtos dos fornecedores e os produtos internos.",
+      "pbDescription": "Implementar a identificação e a associação manual de itens não reconhecidos.",
+      "criteria": [
+        "O sistema deve sinalizar itens não reconhecidos.",
+        "Os itens devem permanecer pendentes até que sejam corrigidos ou associados.",
+        "Deve ser possível selecionar manualmente o produto interno correspondente.",
+        "A associação confirmada deve ser armazenada para importações futuras.",
+        "Itens pendentes não devem ser tratados como preços válidos para comparação."
+      ]
+    },
+    {
+      "id": "HU09",
+      "pb": "PB09",
+      "epic": "E2",
+      "title": "HU09 — Concluir uma importação validada",
+      "priority": "Alta",
+      "branch": "hu09-concluir-importacao",
+      "story": "Como responsável pelas compras, quero confirmar a importação após conferir os dados extraídos, para registrar os preços válidos sem perder informações históricas.",
+      "pbDescription": "Implementar a confirmação e a finalização das importações validadas.",
+      "criteria": [
+        "O sistema deve permitir concluir o processamento dos itens validados.",
+        "Os preços válidos devem ser persistidos no banco de dados.",
+        "Os registros anteriores não devem ser sobrescritos.",
+        "A importação deve possuir um status que represente seu resultado.",
+        "Falhas parciais devem ser registradas com seus erros e itens pendentes."
+      ]
+    },
+    {
+      "id": "HU10",
+      "pb": "PB10",
+      "epic": "E3",
+      "title": "HU10 — Manter histórico de preços",
+      "priority": "Alta",
+      "branch": "hu10-historico-precos",
+      "story": "Como responsável pelas compras, quero consultar os preços válidos registrados em importações anteriores, para acompanhar a evolução dos preços praticados pelos fornecedores.",
+      "pbDescription": "Desenvolver o armazenamento e a consulta do histórico de preços.",
+      "criteria": [
+        "O sistema deve manter o histórico de importações.",
+        "Os preços válidos de importações anteriores devem ser preservados.",
+        "Deve ser possível consultar o histórico por produto, fornecedor e importação.",
+        "Uma nova importação não deve sobrescrever os registros anteriores.",
+        "A ausência de um item em um PDF posterior não deve apagar seu último preço válido."
+      ]
+    },
+    {
+      "id": "HU11",
+      "pb": "PB11",
+      "epic": "E3",
+      "title": "HU11 — Comparar preços anteriores e atuais",
+      "priority": "Alta",
+      "branch": "hu11-comparar-precos",
+      "story": "Como responsável pelas compras, quero comparar cada preço válido importado com o último preço válido conhecido do mesmo item, fornecedor e apresentação comercial, para identificar alterações nos custos de compra.",
+      "pbDescription": "Implementar a comparação entre preços anteriores e atuais.",
+      "criteria": [
+        "A comparação deve utilizar o último preço válido conhecido do mesmo fornecedor e apresentação comercial.",
+        "A comparação deve considerar unidade e embalagem.",
+        "O sistema deve apresentar o preço anterior e o preço atual.",
+        "Deve calcular a diferença absoluta entre os preços.",
+        "Deve calcular a variação percentual utilizando a fórmula: Variação Percentual = (Preço Atual - Preço Anterior) / Preço Anterior × 100.",
+        "O cálculo percentual somente deve ser realizado quando o preço anterior for maior que zero.",
+        "Quando não existir preço anterior, o item deve ser classificado como novo, sem calcular percentual."
+      ]
+    },
+    {
+      "id": "HU12",
+      "pb": "PB12",
+      "epic": "E3",
+      "title": "HU12 — Classificar as variações de preços",
+      "priority": "Alta",
+      "branch": "hu12-classificar-variacoes",
+      "story": "Como responsável pelas compras, quero que o sistema classifique os resultados da comparação, para identificar rapidamente os itens que exigem atenção.",
+      "pbDescription": "Implementar a classificação das variações de preços.",
+      "criteria": [
+        "Aumentou: preço atual maior que o anterior.",
+        "Diminuiu: preço atual menor que o anterior.",
+        "Sem alteração: preço atual igual ao anterior.",
+        "Novo: item sem preço base anterior.",
+        "Pendente: item que necessita de correção, validação ou associação.",
+        "A classificação deve ser exibida por meio de rótulos textuais e, quando apropriado, ícones ou setas.",
+        "A interface não deve depender exclusivamente de cores para comunicar as alterações."
+      ]
+    },
+    {
+      "id": "HU13",
+      "pb": "PB13",
+      "epic": "E3",
+      "title": "HU13 — Consultar os resultados das comparações",
+      "priority": "Alta",
+      "branch": "hu13-consultar-comparacoes",
+      "story": "Como responsável pelas compras, quero visualizar os resultados das comparações de preços, para decidir quais fornecedores e produtos precisam de uma análise mais detalhada.",
+      "pbDescription": "Desenvolver a interface de consulta dos resultados das comparações.",
+      "criteria": [
+        "O sistema deve exibir o preço anterior e o atual.",
+        "Deve apresentar a diferença absoluta e a variação percentual, quando aplicável.",
+        "Deve exibir a classificação de cada item.",
+        "Deve permitir consultar os resultados por produto, fornecedor e importação.",
+        "Itens novos e pendentes devem ser identificados corretamente."
+      ]
+    }
+  ]
+}

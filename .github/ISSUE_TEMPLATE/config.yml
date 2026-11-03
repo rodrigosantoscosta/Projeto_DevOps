@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Product Backlog (Project)
+    url: https://github.com/rodrigosantoscosta/Projeto_DevOps/projects
+    about: Acompanhe o andamento das Histórias de Usuário e dos Épicos no board
+  - name: Documento de HUs e Backlog
+    url: https://github.com/rodrigosantoscosta/Projeto_DevOps/blob/master/HU%20e%20Backlog.md
+    about: Entregável acadêmico com o recorte das histórias e do product backlog
