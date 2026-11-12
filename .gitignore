@@ -1,2 +1,7 @@
 # Configuracoes locais de ferramentas
 .serena/
+.worktrees/
+
+# Metadados de download (Windows / WSL)
+*:Zone.Identifier
+*.Zone.Identifier
