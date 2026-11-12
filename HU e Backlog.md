@@ -129,7 +129,7 @@ Como responsável pelas compras, quero enviar um arquivo PDF associado a um forn
 **Critérios de aceitação:**
 
 - [ ] O sistema deve permitir selecionar o fornecedor.
-- [ ] Deve ser possível enviar um arquivo PDF compatível com os formatos de referência fornecidos.
+- [ ] Deve ser possível enviar arquivos PDF digitais ou digitalizados compatíveis com os formatos de referência fornecidos.
 - [ ] O sistema deve registrar a data da importação, o arquivo, a quantidade de itens e o status do processamento.
 - [ ] Cada tentativa de importação deve ser registrada.
 - [ ] O sistema deve detectar possíveis reimportações do mesmo arquivo para evitar duplicações silenciosas.
@@ -143,9 +143,10 @@ Como responsável pelas compras, quero que o sistema extraia as informações di
 **Critérios de aceitação:**
 
 - [ ] O sistema deve extrair, quando disponíveis, referência, descrição, unidade ou embalagem, quantidade e preço.
+- [ ] A extração primária deve ocorrer diretamente sobre tabelas digitais (pdfplumber/PyMuPDF) com fallback automático de OCR em CPU para páginas ou documentos rasterizados sem texto nativo.
+- [ ] O sistema deve processar os formatos de referência fornecidos (como docs/Fornecedor_1.pdf e docs/Fornecedor_2.pdf), suportando ausência eventual de código interno ou unidade explícita.
 - [ ] Os dados extraídos devem ser apresentados para conferência.
 - [ ] O sistema deve indicar inconsistências identificadas durante a extração.
-- [ ] Os PDFs devem ser processados conforme os formatos de referência disponibilizados para o projeto.
 - [ ] Falhas de extração devem ser registradas, sem indicar que a importação foi integralmente validada.
 
 **Prioridade**: Alta — MVP.
@@ -290,10 +291,10 @@ As histórias e os épicos deste documento estão registrados como issues do rep
 | HU01 — Cadastrar produtos internos | [#1](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/1) | HU11 — Comparar preços anteriores e atuais | [#11](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/11) |
 | HU02 — Consultar e editar produtos | [#2](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/2) | HU12 — Classificar as variações de preços | [#12](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/12) |
 | HU03 — Cadastrar fornecedores | [#3](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/3) | HU13 — Consultar os resultados das comparações | [#13](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/13) |
-| HU04 — Associar itens dos fornecedores aos produtos internos | [#4](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/4) | | |
-| HU05 — Enviar PDF de fornecedor | [#5](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/5) | | |
-| HU06 — Extrair dados dos arquivos PDF | [#6](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/6) | | |
-| HU07 — Conferir e corrigir dados extraídos | [#7](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/7) | | |
+| HU04 — Associar itens dos fornecedores aos produtos internos | [#4](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/4) | SETUP: Infraestrutura Docker Compose | [#17](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/17) |
+| HU05 — Enviar PDF de fornecedor | [#5](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/5) | SETUP: Backend (NestJS + Prisma) | [#18](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/18) |
+| HU06 — Extrair dados dos arquivos PDF | [#6](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/6) | SETUP: Frontend (React + Vite) | [#19](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/19) |
+| HU07 — Conferir e corrigir dados extraídos | [#7](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/7) | SETUP: Extrator PDF (FastAPI + pdfplumber) | [#20](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/20) |
 
 O índice completo, gerado a partir das issues, está em [`.github/backlog/INDEX.md`](./.github/backlog/INDEX.md), e a fonte versionada que alimenta a sincronização está em [`.github/backlog/hus.json`](./.github/backlog/hus.json).
 Cada issue contém os critérios de aceitação em formato de checklist e a branch sugerida para a HU.

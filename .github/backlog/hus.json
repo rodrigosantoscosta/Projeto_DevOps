@@ -126,7 +126,7 @@
       "pbDescription": "Desenvolver a funcionalidade de envio de arquivos PDF vinculados a fornecedores.",
       "criteria": [
         "O sistema deve permitir selecionar o fornecedor.",
-        "Deve ser possível enviar um arquivo PDF compatível com os formatos de referência fornecidos.",
+        "Deve ser possível enviar arquivos PDF digitais ou digitalizados compatíveis com os formatos de referência fornecidos.",
         "O sistema deve registrar a data da importação, o arquivo, a quantidade de itens e o status do processamento.",
         "Cada tentativa de importação deve ser registrada.",
         "O sistema deve detectar possíveis reimportações do mesmo arquivo para evitar duplicações silenciosas."
@@ -143,9 +143,10 @@
       "pbDescription": "Implementar a extração de informações dos arquivos PDF.",
       "criteria": [
         "O sistema deve extrair, quando disponíveis, referência, descrição, unidade ou embalagem, quantidade e preço.",
+        "A extração primária deve ocorrer diretamente sobre tabelas digitais (pdfplumber/PyMuPDF) com fallback automático de OCR em CPU para páginas ou documentos rasterizados sem texto nativo.",
+        "O sistema deve processar os formatos de referência fornecidos (como docs/Fornecedor_1.pdf e docs/Fornecedor_2.pdf), suportando ausência eventual de código interno ou unidade explícita.",
         "Os dados extraídos devem ser apresentados para conferência.",
         "O sistema deve indicar inconsistências identificadas durante a extração.",
-        "Os PDFs devem ser processados conforme os formatos de referência disponibilizados para o projeto.",
         "Falhas de extração devem ser registradas, sem indicar que a importação foi integralmente validada."
       ]
     },

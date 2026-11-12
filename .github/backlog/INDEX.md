@@ -31,3 +31,12 @@
 | PB11 | HU11 | HU11 — Comparar preços anteriores e atuais | [#11](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/11) | `hu11-comparar-precos` |
 | PB12 | HU12 | HU12 — Classificar as variações de preços | [#12](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/12) | `hu12-classificar-variacoes` |
 | PB13 | HU13 | HU13 — Consultar os resultados das comparações | [#13](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/13) | `hu13-consultar-comparacoes` |
+
+## Tarefas Técnicas de Setup (Infraestrutura e Módulos)
+
+| Identificador | Título | Issue | Branch sugerida |
+| --- | --- | --- | --- |
+| SETUP-INFRA | Setup da Infraestrutura local com Docker Compose | [#17](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/17) | `infra/docker-compose-postgres` |
+| SETUP-BACKEND | Inicialização do módulo Backend (NestJS + Prisma) | [#18](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/18) | `setup/backend-nestjs-prisma` |
+| SETUP-FRONTEND | Inicialização do módulo Frontend (React + Vite) | [#19](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/19) | `setup/frontend-react-vite` |
+| SETUP-EXTRACTOR | Inicialização do Extrator PDF (FastAPI + pdfplumber) | [#20](https://github.com/rodrigosantoscosta/Projeto_DevOps/issues/20) | `setup/extractor-fastapi-pdfplumber` |
